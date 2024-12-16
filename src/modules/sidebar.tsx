@@ -1,22 +1,22 @@
 "use client"
+import React from "react";
+import {RootState} from "@/store/store";
 import {useDispatch, useSelector} from "react-redux";
 import {setSidebar} from "@/store/states/sidebarState";
-import React from "react";
+import {useRouter} from "next/navigation";
 
 export default function Sidebar() {
 
 	const dispatch = useDispatch();
-	const sidebarState = useSelector(store => store.sidebarState)
+	const sidebarState = useSelector((store: RootState) => store.sidebarState)
 
-	const closeSidebar = () => {
-		dispatch((setSidebar(false)))
-	}
-	const openSidebar = () => {
-		dispatch((setSidebar(true)))
-	}
+	const closeSidebar = () => dispatch((setSidebar(false)))
+	const openSidebar = () => dispatch((setSidebar(true)))
+
+	const route = useRouter();
 
 	return (
-		<div id="sidebar" className={sidebarState && "active"}>
+		<div id="sidebar" className={sidebarState ? "active" : ""}>
 			<section>
 				<div className="header">
 					<h1>JUSTNOTES</h1>
@@ -37,19 +37,19 @@ export default function Sidebar() {
 				</div>
 				<div className="main">
 					<ul>
-						<li>
+						<li onClick={() => route.push("/")}>
 							<div><NoteIcon/><p>Notes</p></div>
 							<ArrowIcon/></li>
-						<li>
+						<li onClick={() => route.push("/favorites")}>
 							<div><FavIcon/><p>Favorites</p></div>
 							<ArrowIcon/></li>
-						<li>
+						<li onClick={() => route.push("/projects")}>
 							<div><ProjectIcon/><p>Projects</p></div>
 							<ArrowIcon/></li>
-						<li>
+						<li onClick={() => route.push("/archive")}>
 							<div><ArchiveIcon/><p>Archive</p></div>
 							<ArrowIcon/></li>
-						<li>
+						<li onClick={() => route.push("/trash")}>
 							<div><TrashIcon/><p>Trash</p></div>
 							<ArrowIcon/></li>
 					</ul>

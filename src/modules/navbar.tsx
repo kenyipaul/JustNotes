@@ -2,11 +2,12 @@
 import React from "react";
 import {useDispatch, useSelector} from "react-redux";
 import { setSidebar } from "@/store/states/sidebarState";
+import { RootState } from "@/store/store"
 
 export default function Navbar() {
 
 	const dispatch = useDispatch();
-	const sidebarState = useSelector(store => store.sidebarState)
+	const sidebarState = useSelector((store: RootState) => store.sidebarState)
 
 	const toggleSidebar = () => {
 		sidebarState ?

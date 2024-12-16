@@ -1,3 +1,42 @@
 @use "./global" as *;
 @use "./sidebar";
 @use "./navbar";
+
+main {
+    padding: 1rem;
+    grid-area: main;
+}
+
+@media (min-width: 600px) {
+
+    #root {
+        display: grid;
+        grid-template-rows: [row-start] 63px [row-end] 1fr;
+        grid-template-columns: [col-start] 70px;
+        grid-template-areas:
+                "sidebar navbar navbar navbar"
+                "sidebar main main main"
+                "sidebar main main main"
+                "sidebar main main main";
+
+        &.active {
+            grid-template-columns: [col-start] 270px;
+        }
+    }
+
+}
+
+@media (min-width: 1200px) {
+
+    #root {
+        display: grid;
+        grid-template-rows: [row-start] 63px [row-end] 1fr;
+        grid-template-columns: [col-start] 270px;
+        grid-template-areas:
+                "sidebar navbar navbar navbar"
+                "sidebar main main main"
+                "sidebar main main main"
+                "sidebar main main main";
+    }
+
+}

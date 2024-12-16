@@ -2,6 +2,7 @@
 .navbar {
     display: flex;
     padding: 1rem;
+    grid-area: navbar;
     align-items: center;
     justify-content: space-between;
     border-bottom: 1px solid #00000010;
@@ -29,5 +30,23 @@
         cursor: pointer;
         align-items: center;
         border-radius: 50rem;
+    }
+}
+
+
+@media (min-width: 600px) {
+    .navbar {
+        div {
+            svg { display: none }
+        }
+    }
+}
+
+@media (min-width: 1200px) {
+    .navbar {
+        div {
+            h1 { display: none }
+            svg { display: none }
+        }
     }
 }
