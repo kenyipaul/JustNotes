@@ -1,5 +1,7 @@
+@use "./global" as *;
 
 .navbar {
+    height: 63px;
     display: flex;
     padding: 1rem;
     grid-area: navbar;
@@ -20,6 +22,7 @@
 
         h1 {
             font-size: 1.5em;
+            font-family: $secondary-font;
         }
     }
 

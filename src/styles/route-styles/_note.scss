@@ -1,0 +1,162 @@
+@use "../global" as *;
+
+#notes-view {
+    overflow: auto;
+    scrollbar-width: auto;
+
+    &::-webkit-scrollbar { width: 5px !important; }
+    &::-webkit-scrollbar-thumb { background: #9900ff !important; border-radius: 5rem;  }
+
+    .project-list-container {
+        display: grid;
+        padding: 1rem 0;
+        overflow: hidden;
+
+        .top-bar {
+            padding: 1rem;
+            display: flex;
+            align-content: center;
+            justify-content: space-between;
+
+            h1 {
+                font-size: 1.5em;
+            }
+
+            div {
+                gap: 1rem;
+                display: flex;
+                align-content: center;
+
+                svg {
+                    width: 2rem;
+                    height: 2rem;
+                    cursor: pointer;
+                }
+            }
+        }
+
+        .main {
+            display: grid;
+        }
+
+        .project-list {
+            gap: 1rem;
+            width: 100%;
+            display: flex;
+            padding: 1rem 0 2rem 0;
+            overflow-x: auto;
+            scrollbar-width: none;
+            scroll-snap-align: start;
+            scroll-snap-type: x mandatory;
+
+            .project {
+                gap: 1rem;
+                display: flex;
+                padding: 1rem;
+                min-width: 260px;
+                background: #ffffff;
+                position: relative;
+                border-radius: 1rem;
+                flex-direction: column;
+                scroll-snap-align: center;
+                box-shadow: 0 .5rem .8rem .1rem #00000010;
+
+                &:first-child { margin-left: 1rem; }
+                &:last-child { margin-right: 1rem; }
+
+                .moreBtn {
+                    top: 1rem;
+                    right: 1rem;
+                    cursor: pointer;
+                    position: absolute;
+                }
+
+                div {
+                    gap: .5rem;
+                    display: grid;
+                    h1 {
+                        font-size: clamp(1.2em, 5vw, 1.5em);
+                    }
+                    h3 {
+                        font-size: 1em;
+                    }
+                }
+            }
+        }
+
+    }
+
+
+    .notes-list-container {
+        .top-bar {
+            padding: 1rem;
+
+            h1 {
+                font-size: 1.5em;
+            }
+        }
+
+        .notes-list {
+            gap: 1rem;
+            display: grid;
+            padding: 1rem;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+
+            .note {
+                padding: .5rem;
+                background: #fff;
+                border-radius: 1.5rem;
+                box-shadow: 0 .5rem .8rem .1rem #00000010;
+
+                .title-bar {
+                    display: flex;
+                    padding: 1rem;
+                    align-content: center;
+                    justify-content: space-between;
+
+                    .tag {
+                        gap: .5rem;
+                        color: #fff;
+                        display: flex;
+                        border-radius: 50rem;
+                        padding: .3rem 1rem .3rem .5rem;
+                        background: #9900ff;
+                        align-items: center;
+                        justify-content: center;
+                    }
+
+                    svg {
+                        cursor: pointer;
+                    }
+                }
+
+                .main {
+                    padding: 1rem;
+
+                    h1 {
+                        font-size: 1.5em;
+                    }
+
+                    p {
+                        hyphens: auto;
+                        margin: .5rem 0;
+                    }
+                }
+
+                .footer {
+                    padding: 1rem;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+
+                    svg {
+                        width: 1.5rem;
+                        height: 1.5rem;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+
+}
