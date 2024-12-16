@@ -6,3 +6,5 @@ export const store = configureStore({
 		sidebarState: sidebarState
 	}
 })
+
+export type StoreType = typeof store;
