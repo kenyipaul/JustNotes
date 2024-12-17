@@ -1,9 +1,5 @@
 @use "./global" as *;
-@use "./sidebar";
-@use "./navbar";
 @use "./route-styles/note";
-@use "./route-styles/note_writer";
-@use "./route-styles/project_manager";
 
 #root {
     height: 100vh;
@@ -17,12 +13,17 @@ main {
     grid-area: main;
 }
 
+
+#root.dark { // DARK
+    background: $dark-color;
+}
+
 @media (min-width: 600px) {
 
     #root {
         display: grid;
         grid-template-rows: [row-start] 63px [row-end] 1fr;
-        grid-template-columns: [col-start] 70px;
+        grid-template-columns: [col-start] 80px;
         grid-template-areas:
         "sidebar navbar navbar navbar"
         "sidebar main main main"
@@ -30,7 +31,7 @@ main {
         "sidebar main main main";
         
         &.active {
-            grid-template-columns: [col-start] 270px;
+            grid-template-columns: [col-start] 250px;
         }
         
         &.inactive-navbar {
@@ -45,7 +46,7 @@ main {
     #root {
         display: grid;
         grid-template-rows: [row-start] 63px [row-end] 1fr;
-        grid-template-columns: [col-start] 270px;
+        grid-template-columns: [col-start] 250px;
         grid-template-areas:
                 "sidebar navbar navbar navbar"
                 "sidebar main main main"

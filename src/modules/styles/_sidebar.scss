@@ -1,4 +1,4 @@
-@use "./global" as *;
+@use "@/styles/global" as *;
 
 #sidebar {
     width: 100%;
@@ -6,19 +6,27 @@
     grid-area: sidebar;
     background: #f9f9f9;
     position: absolute;
-    display: flex;
     max-width: 0;
     overflow: hidden;
-    flex-direction: column;
-    justify-content: space-between;
-    border-right: 1px solid #00000010;
+    padding: .5rem;
     // transition: .5s ease;
     opacity: 0;
     z-index: 99;
 
     &.active {
         opacity: 1;
-        max-width: 270px;
+        max-width: 250px;
+    }
+
+    .content {
+        height: 100%;
+        display: flex;
+        width: 100%;
+        background: #fff;
+        border-radius: .7rem;
+        flex-direction: column;
+        box-shadow: 0 0 1rem #00000010;
+        justify-content: space-between;
     }
 
     section {
@@ -28,9 +36,9 @@
             flex-direction: column;
 
             .header {
-                height: 63px;
+                height: 55px;
                 display: flex;
-                padding: 1rem;
+                padding: .7rem 1rem;
                 align-items: center;
                 justify-content: space-between;
                 border-bottom: 1px solid #00000010;
@@ -43,8 +51,8 @@
 
                 svg {
                     color: #555;
-                    width: 2rem;
-                    height: 2rem;
+                    width: 1.7rem;
+                    height: 1.7rem;
                     cursor: pointer;
                 }
 
@@ -60,15 +68,9 @@
                     li {
                         display: flex;
                         cursor: pointer;
-                        padding: .5rem 0;
+                        padding: .6rem 0;
                         transition: .5s ease;
                         justify-content: space-between;
-
-                        &:hover {
-                            border-radius: .7rem;
-                            padding: .5rem 1rem;
-                            background: #eee;
-                        }
 
                         div {
                             gap: 1rem;
@@ -112,12 +114,38 @@
 }
 
 
+#root.dark #sidebar { // DARK
+    background: none;
+
+    .content {
+        background: $dark-color;
+        border: 1px solid $dark;
+
+        section:nth-child(1) {
+            .header {
+                h1 { color: #fff; }
+                svg { color: #fff; }
+            }
+
+            .main {
+                p { color: #fff; }
+                svg { color: #fff; }
+            }
+        }
+
+        section:nth-child(2) {
+            p { color: #fff; }
+            svg { fill: #fff; }
+        }
+    }
+}
+
 
 @media (min-width: 600px) {
 
     #sidebar {
         opacity: 1;
-        max-width: 70px;
+        max-width: 80px;
         position: relative;
 
         section:nth-child(1) {

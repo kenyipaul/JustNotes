@@ -11,6 +11,7 @@
 $primary-font: roboto-condensed;
 $secondary-font: titillium-web;
 
+
 * {
     margin: 0;
     padding: 0;
@@ -19,3 +20,8 @@ $secondary-font: titillium-web;
     scroll-behavior: smooth;
     font-family: $primary-font, roboto, sans-serif;
 }
+
+$dark: #2c333b;
+$darker: #1a1e24;
+$dark-color: #1c2127;
+$theme-color: #9900ff;

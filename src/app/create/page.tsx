@@ -1,4 +1,5 @@
 "use client"
+import "./styles/styles.scss"
 import { motion } from "framer-motion";
 import { RootState } from "@/store/store"
 import {useSelector, useDispatch} from "react-redux";
@@ -45,10 +46,7 @@ export default function App() {
 				<h1>Create New Project</h1>
 				<div className="input-area">
 					<label htmlFor="projectName">Project Name</label>
-					<motion.input 
-					initial={{ rotateX: 90 }}
-					animate={{ rotateX: 0 }}
-					type="text" id="ProjectName" />
+					<motion.input initial={{ rotateX: 90 }} animate={{ rotateX: 0 }} type="text" id="ProjectName" />
 				</div>
 				<div className="color-input">
 					<p>Project Color</p>
@@ -60,10 +58,7 @@ export default function App() {
 						}
 					</div>
 				</div>
-				<motion.button 
-				initial={{ rotateX: 90 }}
-				animate={{ rotateX: 0 }}
-				onClick={saveProject}>Create Project</motion.button>
+				<motion.button initial={{ rotateX: 90 }} animate={{ rotateX: 0 }} onClick={saveProject}>Create Project</motion.button>
 			</div>
 			
 		</div>

@@ -1,4 +1,4 @@
-@use "../global" as *;
+@use "@/styles/global" as *;
 
 .project-manager {
     display: flex;
@@ -39,12 +39,6 @@
                 height: 3rem;
                 cursor: pointer;
                 border-radius: .6rem;
-
-                //&:nth-child(1) { background: #00ff53; }
-                //&:nth-child(2) { background: #ff0053; }
-                //&:nth-child(3) { background: #9900ff; }
-                //&:nth-child(4) { background: #ffbb00; }
-                //&:nth-child(5) { background: #0095ff; }
             }
         }
     }
@@ -57,4 +51,26 @@
         padding: 1.2rem 1rem;
         border-radius: .6rem;
     }
+}
+
+
+#root.dark .project-manager {
+
+    h1 {
+        color: #fff;
+    }
+    p, label {
+        color: #fff;
+    }
+
+    input {
+        color: #fff;
+        background: $dark;
+    }
+
+    button {
+        color: #000;
+        background: #fff;
+    }
+
 }
