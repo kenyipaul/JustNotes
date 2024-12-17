@@ -2,6 +2,8 @@
 @use "./sidebar";
 @use "./navbar";
 @use "./route-styles/note";
+@use "./route-styles/note_writer";
+@use "./route-styles/project_manager";
 
 #root {
     height: 100vh;
@@ -22,13 +24,17 @@ main {
         grid-template-rows: [row-start] 63px [row-end] 1fr;
         grid-template-columns: [col-start] 70px;
         grid-template-areas:
-                "sidebar navbar navbar navbar"
-                "sidebar main main main"
-                "sidebar main main main"
-                "sidebar main main main";
-
+        "sidebar navbar navbar navbar"
+        "sidebar main main main"
+        "sidebar main main main"
+        "sidebar main main main";
+        
         &.active {
             grid-template-columns: [col-start] 270px;
+        }
+        
+        &.inactive-navbar {
+            grid-template-rows: [row-start] 0 [row-end] 1fr;
         }
     }
 

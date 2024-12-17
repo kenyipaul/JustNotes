@@ -21,9 +21,10 @@ export default function Root({children}: { children: React.ReactNode }) {
 
 function Template({children}: {children: React.ReactNode}) {
 	const sidebarState = useSelector((store: any) => store.sidebarState)
+	const navbarState = useSelector((store: any) => store.navbarState);
 
 	return (
-		<div id="root" className={sidebarState ? "active" : ""}>
+		<div id="root" className={sidebarState ? "active" : navbarState ? "" : "inactive-navbar"}>
 			<Sidebar/>
 			<Navbar/>
 			<main>{children}</main>

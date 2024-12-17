@@ -12,8 +12,9 @@
     flex-direction: column;
     justify-content: space-between;
     border-right: 1px solid #00000010;
-    transition: .5s ease;
+    // transition: .5s ease;
     opacity: 0;
+    z-index: 99;
 
     &.active {
         opacity: 1;
@@ -60,7 +61,14 @@
                         display: flex;
                         cursor: pointer;
                         padding: .5rem 0;
+                        transition: .5s ease;
                         justify-content: space-between;
+
+                        &:hover {
+                            border-radius: .7rem;
+                            padding: .5rem 1rem;
+                            background: #eee;
+                        }
 
                         div {
                             gap: 1rem;
@@ -71,6 +79,11 @@
                         svg {
                             color: #555555;
                         }
+
+                        .arrowIcon { 
+                            display: none;
+                        }
+
                     }
                 }
             }
@@ -207,7 +220,12 @@
         }
 
         section:nth-child(2) {
-            display: block;
+            display: flex;
+            justify-content: space-between !important;
+
+            p {
+                display: none;
+            }
         }
     }
 }
